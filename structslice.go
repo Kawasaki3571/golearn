@@ -1,17 +1,11 @@
 package main
+
 import "fmt"
 
-func main(){
-	s := []struct{
-		i int
-		b bool
-	}{
-		{2, true},
-		{3, false},
-		{5, true},
-		{7, true},
-		{11, false},
-		{13, true},
+func main() {
+	var s []int
+	fmt.Println(s, len(s), cap(s))
+	if s == nil {
+		fmt.Println("nil!")
 	}
-	fmt.Println(s)
 }
