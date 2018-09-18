@@ -1,19 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-type IPAddr [4]byte
-
-func (ip IPAddr) String() string {
-	return fmt.Sprintf("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])
+type I interface{
+	M()
+}
+type T struct{
+	S string
 }
 
-func main() {
-	hosts := map[string]IPAddr{
-		"loopback":  {127, 0, 0, 1},
-		"googleDNS": {8, 8, 8, 8},
-	}
-	for name, ip := range hosts {
-		fmt.Printf("%v: %v\n", name, ip)
-	}
+func(t *T) M(){
+	fmt.Println(t.S)
+}
+
+type F float64
+
+func (f F) M(){
+	fmt.Println(f)
+}
+
+func main(){
+	var i I
+	i = &T{"Hello"}
+	i.M()
+	i = F(math.Pi)
+	i.M()
 }
