@@ -1,31 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "golang.org/x/tour/reader"
 
-type I interface{
-	M()
-}
-type T struct{
-	S string
-}
+type MyReader struct{}
 
-func(t *T) M(){
-	fmt.Println(t.S)
-}
+// TODO: Add a Read([]byte) (int, error) method to MyReader.
 
-type F float64
-
-func (f F) M(){
-	fmt.Println(f)
-}
-
-func main(){
-	var i I
-	i = &T{"Hello"}
-	i.M()
-	i = F(math.Pi)
-	i.M()
+func main() {
+	reader.Validate(MyReader{})
 }
