@@ -15,4 +15,4 @@ func (v Vertex) Abs() float64{
 func main(){
 	v := Vertex{2,4}
 	fmt.Println(v.Abs())
-} 
+}
