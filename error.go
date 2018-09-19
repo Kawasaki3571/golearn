@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type MyError struct {
+type MyError struct { 
 	When time.Time
 	What string
 }
